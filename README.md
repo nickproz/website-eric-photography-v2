@@ -1,6 +1,6 @@
-# vue-parcel-vuetify
+# EStiles Photography v2
 
-Boilerplate code for a Vue project including the Vuetify UI Framework. Built with Parcel.
+EStiles Photography website built from the ground up using Vue and Parcel.
 
 ## Building and running
 
