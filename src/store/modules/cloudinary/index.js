@@ -21,13 +21,19 @@ const state = {
 
 const getters = {
 	[getterTypes.GET_CLOUDINARY_DATA]: state => state.cloudinaryData,
-	[getterTypes.GET_GALLERY_DATA]: state => gallery => state.cloudinaryData && state.cloudinaryData[gallery],
+	[getterTypes.GET_GALLERY_DATA]: state => gallery => {
+		return Object.values((state.cloudinaryData || {})[gallery])
+			.map(photo => ({
+				src: photo.photoUrl,
+				thumb: photo.thumbnailUrl,
+			}));
+	},
 	[getterTypes.GET_GALLERY_LANDING_CARD_DATA]: state => {
 		return Object.entries(state.cloudinaryData)
 			.map(([key, value]) => ({
 				path: key,
-				imgSrc: value[0].thumbnailUrl,
-				imgAlt: key,
+				src: value[0].thumbnailUrl,
+				alt: key,
 				cardPrimaryText: GalleryUtil.getGalleryNameFromGalleryRoute(key),
 				cardSecondaryText: `${value.length} photos`
 			}))

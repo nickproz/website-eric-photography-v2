@@ -2,19 +2,30 @@
 	<div class="gallery-images">
 		<img v-for="(image, index) in images"
 			:key="index"
-			:src="image.thumbnailUrl"
-			class="image"
+			:src="image.thumb"
+			class="image hvr-float"
 			alt="Gallery image"
 			@load="onImageLoad()"
+			@click="openGallery(index)"
+		/>
+		<LightBox
+			ref="lightbox"
+			:media="images"
+			:show-caption="false"
+			:show-light-box="false"
 		/>
 	</div>
 </template>
 
 <script>
+import LightBox from 'vue-image-lightbox'
 import { ON_ALL_IMAGES_LOADED, ON_IMAGE_LOAD } from "../../util/constants/events";
 
 export default {
 	name: 'gallery-images',
+	components: {
+		LightBox,
+	},
 	props: {
 		images: {
 			required: true,
@@ -43,6 +54,9 @@ export default {
 			if(this.totalImagesLoaded >= this.totalImagesToLoad) {
 				this.$emit(ON_ALL_IMAGES_LOADED)
 			}
+		},
+		openGallery(index) {
+			this.$refs.lightbox.showImage(index)
 		}
 	}
 };
@@ -56,7 +70,7 @@ export default {
 		column-gap: 1em;
 
 		.image {
-			/*background-color: white;*/
+			cursor: pointer;
 			display: inline-block;
 			margin: 0 0 1em;
 			width: 100%;

@@ -45,7 +45,7 @@ export default {
 		cursor: pointer;
 
 		.card-image-container {
-			max-height: 180px;
+			max-height: 170px;
 			overflow: hidden;
 		}
 		.card-image {
@@ -60,9 +60,10 @@ export default {
 		.card-primary-text {
 			color: black;
 			text-transform: capitalize;
+			margin-bottom: 0.5rem;
 		}
 		.card-secondary-text {
-			margin-top: 5px;
+			margin-top: 0.5rem;
 			color: @app-gray;
 		}
 	}
