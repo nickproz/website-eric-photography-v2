@@ -1,12 +1,20 @@
 # Todo
-* Add dark mode setting
-* Add loading spinner until all gallery landing images have loaded
+
+### Bugs
+* Fix weird spinner on thin images
+
+### Cleanup
+* Pixels -> rem
 * Add prettier commit hook
 * Fix prettier/eslint conflicts
-
-
 * IDE: Run prettier on save
 * IDE: Add shortcut for closing all files (cmd + shift + -)
 
+### Enhancements
+* Add dark mode setting
 
-* Maybe: Add loading lag for photos
+### Maybe
+* Add loading lag for photos
+* Add loading spinner until all gallery landing images have loaded
+
+
