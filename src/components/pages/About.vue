@@ -37,12 +37,6 @@ export default {
 @import '../../style/breakpoints';
 
 .about {
-	.about-me-image-container,
-	.about-me-text-container {
-		display: flex;
-		flex-direction: column;
-		flex: 1;
-	}
 	.about-me-text-container {
 		font-size: 1.6rem;
 		text-align: justify;
@@ -52,6 +46,7 @@ export default {
 		margin-bottom: 0;
 	}
 	.about-me-image-container {
+		display: flex;
 		align-items: center;
 		justify-content: center;
 	}
@@ -66,6 +61,10 @@ export default {
 	@media @break-tablet {
 		flex-direction: row !important;
 
+		.about-me-image-container,
+		.about-me-text-container {
+			width: 50%;
+		}
 		.about-me-text-container {
 			margin-top: 0;
 		}

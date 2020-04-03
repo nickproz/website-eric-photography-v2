@@ -24,6 +24,9 @@ export default {
 	// 1rem = 10px
 	font-size: 62.5%;
 }
+html, body {
+	height: 100%;
+}
 body {
 	margin: 0;
 }

@@ -22,6 +22,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import '../../../../style/breakpoints';
+
 .header-banner {
 	width: 100%;
 	background-image: url('../../../../assets/images/header-banner.jpg');
@@ -34,7 +36,7 @@ export default {
 	.header-text {
 		cursor: pointer;
 		text-align: center;
-		font-size: 50px;
+		font-size: 40px;
 		color: white;
 		text-transform: uppercase;
 		padding: 25px;
@@ -45,6 +47,12 @@ export default {
 	.logo {
 		height: 60px;
 		vertical-align: text-top;
+	}
+
+	@media @break-mobile {
+		.header-text {
+			font-size: 50px;
+		}
 	}
 }
 </style>
