@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { GalleryUtil } from "../../../util/GalleryUtil";
+import { GalleryUtil } from '../../../util/GalleryUtil';
 
 export const actionTypes = {
 	FETCH_CLOUDINARY_DATA: 'FETCH_CLOUDINARY_DATA'
@@ -20,23 +20,21 @@ const state = {
 };
 
 const getters = {
-	[getterTypes.GET_CLOUDINARY_DATA]: state => state.cloudinaryData,
-	[getterTypes.GET_GALLERY_DATA]: state => gallery => {
-		return Object.values((state.cloudinaryData || {})[gallery])
-			.map(photo => ({
-				src: photo.photoUrl,
-				thumb: photo.thumbnailUrl,
-			}));
+	[getterTypes.GET_CLOUDINARY_DATA]: (state) => state.cloudinaryData,
+	[getterTypes.GET_GALLERY_DATA]: (state) => (gallery) => {
+		return Object.values((state.cloudinaryData || {})[gallery]).map((photo) => ({
+			src: photo.photoUrl,
+			thumb: photo.thumbnailUrl
+		}));
 	},
-	[getterTypes.GET_GALLERY_LANDING_CARD_DATA]: state => {
-		return Object.entries(state.cloudinaryData)
-			.map(([key, value]) => ({
-				path: key,
-				src: value[0].thumbnailUrl,
-				alt: key,
-				cardPrimaryText: GalleryUtil.getGalleryNameFromGalleryRoute(key),
-				cardSecondaryText: `${value.length} photos`
-			}))
+	[getterTypes.GET_GALLERY_LANDING_CARD_DATA]: (state) => {
+		return Object.entries(state.cloudinaryData).map(([key, value]) => ({
+			path: key,
+			src: value[0].thumbnailUrl,
+			alt: key,
+			cardPrimaryText: GalleryUtil.getGalleryNameFromGalleryRoute(key),
+			cardSecondaryText: `${value.length} photos`
+		}));
 	}
 };
 
@@ -44,12 +42,13 @@ const actions = {
 	[actionTypes.FETCH_CLOUDINARY_DATA]({ commit, getters }) {
 		// Only fetch data if we haven't already
 		const existingCloudinaryData = getters[getterTypes.GET_CLOUDINARY_DATA];
-		if(!Object.keys(existingCloudinaryData).length) {
+		if (!Object.keys(existingCloudinaryData).length) {
 			console.info('Fetching new cloudinary data.');
-			return axios.get('https://nick-proz-node-server.herokuapp.com/cloudinary/photos')
-				.then(({ data }) => commit(mutationTypes.UPDATE_CLOUDINARY_DATA, data))
+			return axios
+				.get('https://nick-proz-node-server.herokuapp.com/cloudinary/photos')
+				.then(({ data }) => commit(mutationTypes.UPDATE_CLOUDINARY_DATA, data));
 		} else {
-			console.info('Cached cloudinary data being used.')
+			console.info('Cached cloudinary data being used.');
 		}
 	}
 };

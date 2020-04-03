@@ -1,5 +1,5 @@
 export class GalleryUtil {
 	static getGalleryNameFromGalleryRoute(galleryRoute) {
-		return galleryRoute.split('-').join(' ')
+		return galleryRoute.split('-').join(' ');
 	}
 }

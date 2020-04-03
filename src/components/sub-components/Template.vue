@@ -6,12 +6,10 @@
 export default {
 	name: 'template',
 	data() {
-		return {}
+		return {};
 	},
 	computed: {},
-	created() {
-
-	},
+	created() {},
 	methods: {
 		buttonClick() {
 			alert('Hello World!');
@@ -21,8 +19,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
-	@import '../../style/variables.less';
+@import '../../style/variables.less';
 
-	.template {
-	}
+.template {
+}
 </style>

@@ -7,3 +7,6 @@ import '../node_modules/hover.css/css/hover.css';
 
 // Vue lightbox
 import '../node_modules/vue-image-lightbox/dist/vue-image-lightbox.min.css';
+
+// Font awesome
+import '@fortawesome/fontawesome-free/css/all.css';

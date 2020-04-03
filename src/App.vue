@@ -1,20 +1,20 @@
 <template>
 	<v-app class="application">
-		<navigation></navigation>
+		<header-bar></header-bar>
 		<router-view class="main-content"></router-view>
-		<footnote></footnote>
+		<footer-bar></footer-bar>
 	</v-app>
 </template>
 
 <script>
-import Footnote from './components/sub-components/page-frame/Footnote';
-import Navigation from './components/sub-components/page-frame/Navigation';
+import FooterBar from './components/sub-components/page-frame/footer/FooterBar';
+import HeaderBar from './components/sub-components/page-frame/header/HeaderBar';
 
 export default {
 	name: 'app',
 	components: {
-		Footnote,
-		Navigation
+		HeaderBar,
+		FooterBar
 	}
 };
 </script>
@@ -28,8 +28,13 @@ body {
 	margin: 0;
 }
 
-body, .v-application {
+body,
+.v-application {
 	font-family: 'Lato', sans-serif !important;
+}
+
+img {
+	height: auto;
 }
 
 .application {
@@ -39,7 +44,7 @@ body, .v-application {
 
 	.main-content {
 		max-width: 1200px;
-		padding: 30px;
+		padding: 40px;
 		display: flex;
 		flex: 1 0 auto;
 		justify-content: center;
