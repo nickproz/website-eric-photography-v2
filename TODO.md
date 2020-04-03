@@ -16,5 +16,3 @@
 ### Maybe
 * Add loading lag for photos
 * Add loading spinner until all gallery landing images have loaded
-
-
