@@ -74,7 +74,7 @@ export default {
 .header-navigation {
 	.navigation-button {
 		font-size: 1rem !important;
-		padding: 0 25px !important;
+		padding: 0 2.5rem !important;
 	}
 	.navigation-button-icon {
 		margin-right: 1rem !important;

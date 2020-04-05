@@ -43,8 +43,8 @@ export default {
 		justify-content: center;
 	}
 	.about-me-image {
-		width: 300px;
-		border-radius: 500px;
+		width: 30rem;
+		border-radius: 50rem;
 	}
 	.email-link {
 		margin-left: 0.4rem;

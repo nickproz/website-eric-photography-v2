@@ -61,9 +61,9 @@ export default {
 	}
 
 	.card {
-		padding: 10px;
-		margin: 5px 0;
-		height: 250px;
+		padding: 1rem;
+		margin: 0.5rem 0;
+		height: 25rem;
 	}
 
 	@media @break-mobile {

@@ -40,22 +40,22 @@ export default {
 	.header-text {
 		cursor: pointer;
 		text-align: center;
-		font-size: 40px;
+		font-size: 4rem;
 		color: white;
 		text-transform: uppercase;
-		padding: 25px;
+		padding: 2.5rem;
 		margin: 0;
-		letter-spacing: 2px;
-		text-shadow: 1px 1px 3px #404040;
+		letter-spacing: 0.2rem;
+		text-shadow: 0.1rem 0.1rem 0.3rem #404040;
 	}
 	.logo {
-		height: 60px;
+		height: 6rem;
 		vertical-align: text-top;
 	}
 
 	@media @break-mobile {
 		.header-text {
-			font-size: 50px;
+			font-size: 5rem;
 		}
 	}
 }

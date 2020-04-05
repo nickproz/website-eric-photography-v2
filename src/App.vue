@@ -46,8 +46,8 @@ img {
 	width: 100%;
 
 	.main-content {
-		max-width: 1200px;
-		padding: 40px;
+		max-width: 120rem;
+		padding: 4rem;
 		display: flex;
 		flex: 1 0 auto;
 		justify-content: center;
@@ -63,10 +63,10 @@ img {
 
 	.vue-lb-button-close {
 		position: absolute;
-		right: 20px;
-		top: 10px;
-		width: 50px;
-		height: 50px;
+		right: 2rem;
+		top: 1rem;
+		width: 5rem;
+		height: 5rem;
 	}
 
 	.vue-lb-content {
@@ -78,9 +78,9 @@ img {
 		width: 100%;
 		background-image: url('assets/images/standard/loader.gif');
 		background-position: center center;
-		background-size: 40px 40px;
-		min-height: 300px;
-		min-width: 300px;
+		background-size: 4rem 4rem;
+		min-height: 30rem;
+		min-width: 30rem;
 	}
 }
 </style>

@@ -47,7 +47,7 @@ export default {
 	cursor: pointer;
 
 	.card-image-container {
-		max-height: 170px;
+		max-height: 17rem;
 		overflow: hidden;
 	}
 	.card-image {

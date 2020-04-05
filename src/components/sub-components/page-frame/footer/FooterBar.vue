@@ -22,7 +22,7 @@ export default {
 		flex-wrap: wrap;
 		align-items: center;
 		text-align: center;
-		padding: 20px;
+		padding: 2rem;
 		margin: 0;
 	}
 	.email-link {

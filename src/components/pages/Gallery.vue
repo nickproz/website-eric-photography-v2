@@ -80,7 +80,7 @@ export default {
 			this.percentOfImagesLoaded = percentageOfImagesLoaded;
 		},
 		onAllImagesLoaded() {
-			setTimeout(() => (this.areImagesLoading = false), 250)
+			setTimeout(() => (this.areImagesLoading = false), 500)
 		}
 	}
 };
@@ -94,7 +94,7 @@ export default {
 
 	.gallery-header-container {
 		width: 100%;
-		margin-bottom: 15px;
+		margin-bottom: 1.5rem;
 		position: relative;
 		display: flex;
 		align-items: center;
