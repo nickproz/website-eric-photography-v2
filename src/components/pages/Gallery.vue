@@ -2,6 +2,7 @@
 	<div class="gallery">
 		<!-- Loading indicator -->
 		<v-progress-circular
+			class="no-transition"
 			v-if="shouldShowLoadingIndicating"
 			:rotate="360"
 			:size="100"
@@ -79,7 +80,7 @@ export default {
 			this.percentOfImagesLoaded = percentageOfImagesLoaded;
 		},
 		onAllImagesLoaded() {
-			this.areImagesLoading = false;
+			setTimeout(() => (this.areImagesLoading = false), 250)
 		}
 	}
 };
@@ -103,6 +104,9 @@ export default {
 		color: white;
 		font-weight: bold;
 		width: 50%;
+	}
+	.no-transition .progress-circular__overlay {
+		transition: all 0.1s ease-in-out;
 	}
 
 	// Fade transition

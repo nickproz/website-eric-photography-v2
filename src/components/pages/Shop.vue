@@ -1,24 +1,30 @@
 <template>
 	<div class="shop">
-		<a href="https://www.etsy.com/shop/PhotographEboy" target="_blank">
+		<a :href="shopLink" target="_blank">
 			<img
-				class="hvr-grow-rotate etsy-logo"
-				alt="Etsy logo"
-				src="../../assets/images/etsy-logo.png"
+				class="hvr-grow-rotate shop-logo"
+				alt="Shop logo"
+				src="../../assets/images/shop-logo.png"
 			/>
 		</a>
 	</div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import config from '../../store/modules/config';
+
 export default {
-	name: 'shop'
+	name: 'shop',
+	computed: {
+		...mapGetters([config.getterTypes.GET_SHOP_LINK])
+	},
 };
 </script>
 
 <style lang="less" scoped>
 .shop {
-	.etsy-logo {
+	.shop-logo {
 		width: 30rem;
 	}
 }

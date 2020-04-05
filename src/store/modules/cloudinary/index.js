@@ -20,14 +20,14 @@ const state = {
 };
 
 const getters = {
-	[getterTypes.GET_CLOUDINARY_DATA]: (state) => state.cloudinaryData,
-	[getterTypes.GET_GALLERY_DATA]: (state) => (gallery) => {
+	[getterTypes.GET_CLOUDINARY_DATA]: state => state.cloudinaryData,
+	[getterTypes.GET_GALLERY_DATA]: state => gallery => {
 		return Object.values((state.cloudinaryData || {})[gallery]).map((photo) => ({
 			src: photo.photoUrl,
 			thumb: photo.thumbnailUrl
 		}));
 	},
-	[getterTypes.GET_GALLERY_LANDING_CARD_DATA]: (state) => {
+	[getterTypes.GET_GALLERY_LANDING_CARD_DATA]: state => {
 		return Object.entries(state.cloudinaryData).map(([key, value]) => ({
 			path: key,
 			src: value[0].thumbnailUrl,

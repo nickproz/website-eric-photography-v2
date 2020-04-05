@@ -12,6 +12,7 @@
 
 ### Enhancements
 * Add dark mode setting
+* Add ability to have nested folders
 
 ### Maybe
 * Add loading lag for photos

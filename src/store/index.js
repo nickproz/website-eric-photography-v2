@@ -3,6 +3,7 @@ import Vuex from 'vuex';
 import VuexPersist from 'vuex-persist';
 
 import cloudinary from './modules/cloudinary';
+import config from './modules/config';
 
 Vue.use(Vuex);
 
@@ -24,7 +25,8 @@ const vuexLocalStorage = new VuexPersist({
 
 export default new Vuex.Store({
 	modules: {
-		cloudinary
+		cloudinary,
+		config
 	},
 	strict: debug,
 	plugins: [vuexLocalStorage.plugin]

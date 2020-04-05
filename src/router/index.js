@@ -12,7 +12,7 @@ Vue.use(Router);
 export default new Router({
 	routes: [
 		{
-			path: routes.HOME_ROUTE,
+			path: routes.ROOT_ROUTE,
 			name: 'Root',
 			redirect: routes.GALLERY_LANDING_ROUTE
 		},
@@ -39,7 +39,7 @@ export default new Router({
 		{
 			path: '*',
 			name: 'Wildcard',
-			redirect: routes.HOME_ROUTE
+			redirect: routes.ROOT_ROUTE
 		}
 	]
 });

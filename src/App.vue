@@ -76,7 +76,7 @@ img {
 
 	.vue-lb-figure {
 		width: 100%;
-		background-image: url('assets/images/loader.gif');
+		background-image: url('assets/images/standard/loader.gif');
 		background-position: center center;
 		background-size: 40px 40px;
 		min-height: 300px;

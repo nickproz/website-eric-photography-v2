@@ -1,18 +1,22 @@
 <template>
 	<div class="header-banner">
 		<h1 class="header-text" @click="navigateHome">
-			<img alt="Website logo" class="logo" src="../../../../assets/images/logo-white.png" />
-			Estiles Photography
+			<img alt="Website logo" class="logo" src="../../../../assets/images/logo.png" />
+			{{ websiteName }}
 		</h1>
 	</div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+import config from '../../../../store/modules/config';
 import { RouterUtil } from '../../../../util/RouterUtil';
 
 export default {
 	name: 'header-banner',
-	computed: {},
+	computed: {
+		...mapGetters([config.getterTypes.GET_WEBSITE_NAME])
+	},
 	methods: {
 		navigateHome() {
 			RouterUtil.navigateHome();
