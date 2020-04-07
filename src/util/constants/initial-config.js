@@ -15,5 +15,6 @@ you may have at
 <a class="email-link" href="mailto:estiles33@gmail.com.">estiles33@gmail.com</a>.
 `,
 	SHOP_LINK: 'https://www.etsy.com/shop/PhotographEboy',
-	WEBSITE_NAME: 'Estiles Photography'
+	WEBSITE_NAME: 'Estiles Photography',
+	CLOUDINARY_CLOUD_NAME: 'estiles-photography'
 };

@@ -1,5 +1,7 @@
 import axios from 'axios';
+import { getterTypes as configGetterTypes } from '../config';
 import { GalleryUtil } from '../../../util/GalleryUtil';
+import { CLOUDINARY_PHOTOS_URI, CLOUDINARY_URI, SERVER_BASE_URL } from '../../../util/constants/routes';
 
 export const actionTypes = {
 	FETCH_CLOUDINARY_DATA: 'FETCH_CLOUDINARY_DATA'
@@ -43,12 +45,10 @@ const actions = {
 		// Only fetch data if we haven't already
 		const existingCloudinaryData = getters[getterTypes.GET_CLOUDINARY_DATA];
 		if (!Object.keys(existingCloudinaryData).length) {
-			console.info('Fetching new cloudinary data.');
+			const cloudinaryCloudName = getters[configGetterTypes.GET_CLOUDINARY_CLOUD_NAME];
 			return axios
-				.get('https://nick-proz-node-server.herokuapp.com/cloudinary/photos')
+				.get(`${SERVER_BASE_URL}/${CLOUDINARY_URI}/${cloudinaryCloudName}/${CLOUDINARY_PHOTOS_URI}`)
 				.then(({ data }) => commit(mutationTypes.UPDATE_CLOUDINARY_DATA, data));
-		} else {
-			console.info('Cached cloudinary data being used.');
 		}
 	}
 };

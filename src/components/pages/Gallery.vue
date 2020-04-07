@@ -36,7 +36,7 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import cloudinary from '../../store/modules/cloudinary';
-import { GALLERY_PARAM } from '../../util/constants/routes';
+import { GALLERY_PARAM_ID } from '../../util/constants/routes';
 import { RouterUtil } from '../../util/RouterUtil';
 import GalleryImages from './GalleryImages';
 
@@ -53,7 +53,7 @@ export default {
 	computed: {
 		...mapGetters([cloudinary.getterTypes.GET_GALLERY_DATA]),
 		galleryRoute() {
-			return this.$route.params[GALLERY_PARAM];
+			return this.$route.params[GALLERY_PARAM_ID];
 		},
 		shouldShowLoadingIndicating() {
 			return this.isInitialDataLoading || this.areImagesLoading;
