@@ -16,7 +16,7 @@ export default {
 	created() {},
 	methods: {
 		navigateBack() {
-			RouterUtil.navigateBack();
+			RouterUtil.navigateUrlSegmentBack();
 		}
 	}
 };

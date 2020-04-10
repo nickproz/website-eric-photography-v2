@@ -13,7 +13,6 @@
 ### Enhancements
 * Move back button to top of page for smaller pages
 * Add dark mode setting
-* Add ability to have nested folders
 * Zoom or slide page transitions
 
 ### Maybe

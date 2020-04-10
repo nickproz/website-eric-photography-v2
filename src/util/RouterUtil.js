@@ -3,8 +3,10 @@ import router from '../router';
 
 export class RouterUtil {
 
-	static navigateBack() {
-		router.go(-1);
+	static navigateUrlSegmentBack() {
+		const currentPath = RouterUtil.getCurrentPath();
+		const newPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
+		RouterUtil.navigateToRoute(newPath);
 	}
 
 	static navigateHome() {
@@ -12,9 +14,13 @@ export class RouterUtil {
 	}
 
 	static navigateToRoute(route) {
-		const currentPath = router.currentRoute.path;
+		const currentPath = RouterUtil.getCurrentPath();
 		if (currentPath !== route) {
 			router.push(route);
 		}
+	}
+
+	static getCurrentPath() {
+		return router.currentRoute.path;
 	}
 }

@@ -29,7 +29,6 @@
 </template>
 
 <script>
-import { RouterUtil } from '../../util/RouterUtil';
 import GalleryImages from './GalleryImages';
 import BackButton from "../sub-components/BackButton";
 
@@ -49,9 +48,6 @@ export default {
 		};
 	},
 	methods: {
-		navigateBack() {
-			RouterUtil.navigateBack();
-		},
 		onImageLoad(percentageOfImagesLoaded) {
 			this.percentOfImagesLoaded = percentageOfImagesLoaded;
 		},
