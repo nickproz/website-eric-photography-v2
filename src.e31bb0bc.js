@@ -53229,7 +53229,8 @@ exports.ABOUT_ROUTE = ABOUT_ROUTE;
 var SHOP_ROUTE = '/shop'; // External routes
 
 exports.SHOP_ROUTE = SHOP_ROUTE;
-var SERVER_BASE_URL = 'http://localhost:4000'; // External URIs
+var SERVER_BASE_URL = 'https://nick-proz-node-server.herokuapp.com'; // export const SERVER_BASE_URL = 'http://localhost:4000';		// Local development
+// External URIs
 
 exports.SERVER_BASE_URL = SERVER_BASE_URL;
 var CLOUDINARY_URI = 'cloudinary';
@@ -56916,9 +56917,11 @@ var RouterUtil = /*#__PURE__*/function () {
   }
 
   (0, _createClass2.default)(RouterUtil, null, [{
-    key: "navigateBack",
-    value: function navigateBack() {
-      _router.default.go(-1);
+    key: "navigateUrlSegmentBack",
+    value: function navigateUrlSegmentBack() {
+      var currentPath = RouterUtil.getCurrentPath();
+      var newPath = currentPath.substring(0, currentPath.lastIndexOf("/"));
+      RouterUtil.navigateToRoute(newPath);
     }
   }, {
     key: "navigateHome",
@@ -56928,11 +56931,16 @@ var RouterUtil = /*#__PURE__*/function () {
   }, {
     key: "navigateToRoute",
     value: function navigateToRoute(route) {
-      var currentPath = _router.default.currentRoute.path;
+      var currentPath = RouterUtil.getCurrentPath();
 
       if (currentPath !== route) {
         _router.default.push(route);
       }
+    }
+  }, {
+    key: "getCurrentPath",
+    value: function getCurrentPath() {
+      return _router.default.currentRoute.path;
     }
   }]);
   return RouterUtil;
@@ -57256,7 +57264,7 @@ var _default = {
   created: function created() {},
   methods: {
     navigateBack: function navigateBack() {
-      _RouterUtil.RouterUtil.navigateBack();
+      _RouterUtil.RouterUtil.navigateUrlSegmentBack();
     }
   }
 };
@@ -57629,8 +57637,6 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var _RouterUtil = require("../../util/RouterUtil");
-
 var _GalleryImages = _interopRequireDefault(require("./GalleryImages"));
 
 var _BackButton = _interopRequireDefault(require("../sub-components/BackButton"));
@@ -57686,9 +57692,6 @@ var _default = {
     };
   },
   methods: {
-    navigateBack: function navigateBack() {
-      _RouterUtil.RouterUtil.navigateBack();
-    },
     onImageLoad: function onImageLoad(percentageOfImagesLoaded) {
       this.percentOfImagesLoaded = percentageOfImagesLoaded;
     },
@@ -57805,7 +57808,7 @@ render._withStripped = true
       
       }
     })();
-},{"../../util/RouterUtil":"util/RouterUtil.js","./GalleryImages":"components/pages/GalleryImages.vue","../sub-components/BackButton":"components/sub-components/BackButton.vue","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"components/pages/GalleryLandingRouter.vue":[function(require,module,exports) {
+},{"./GalleryImages":"components/pages/GalleryImages.vue","../sub-components/BackButton":"components/sub-components/BackButton.vue","_css_loader":"../node_modules/parcel-bundler/src/builtins/css-loader.js","vue-hot-reload-api":"../node_modules/vue-hot-reload-api/dist/index.js","vue":"../node_modules/vue/dist/vue.runtime.esm.js"}],"components/pages/GalleryLandingRouter.vue":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -62908,7 +62911,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59030" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61405" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
