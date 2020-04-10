@@ -11,8 +11,10 @@
 * IDE: Add shortcut for closing all files (cmd + shift + -)
 
 ### Enhancements
+* Move back button to top of page for smaller pages
 * Add dark mode setting
 * Add ability to have nested folders
+* Zoom or slide page transitions
 
 ### Maybe
 * Add loading spinner for all gallery landing images

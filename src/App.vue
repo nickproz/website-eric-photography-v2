@@ -1,7 +1,12 @@
 <template>
 	<v-app class="application">
 		<header-bar></header-bar>
-		<router-view class="main-content"></router-view>
+		<transition
+			name="fade"
+			mode="out-in"
+		>
+			<router-view class="main-content" :key="$route.fullPath"></router-view>
+		</transition>
 		<footer-bar></footer-bar>
 	</v-app>
 </template>
@@ -81,6 +86,19 @@ img {
 		background-size: 4rem 4rem;
 		min-height: 30rem;
 		min-width: 30rem;
+	}
+
+	/* Fade transitions */
+	.fade-enter-active,
+	.fade-leave-active {
+		transition-duration: 0.5s;
+		transition-property: opacity;
+		transition-timing-function: ease;
+	}
+
+	.fade-enter,
+	.fade-leave-active {
+		opacity: 0
 	}
 }
 </style>

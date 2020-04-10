@@ -1,50 +1,47 @@
 <template>
 	<div class="gallery-landing">
-		<v-progress-circular v-if="isLoading" indeterminate color="primary"></v-progress-circular>
-		<template v-else>
-			<div class="cards">
-				<gallery-landing-card
-					class="card"
-					v-for="(card, index) in galleryLandingCardData"
-					:key="index"
-					:img-src="card.src"
-					:img-alt="card.alt"
-					:card-primary-text="card.cardPrimaryText"
-					:card-secondary-text="card.cardSecondaryText"
-					@click.native="navigateToRoute(card.path)"
-				>
-				</gallery-landing-card>
-			</div>
-		</template>
+		<!-- Back button (if we are in a nested landing page) -->
+		<back-button v-if="galleryRoute"></back-button>
+
+		<!-- Landing cards -->
+		<div class="cards">
+			<gallery-landing-card
+				class="card"
+				v-for="(card, index) in galleryLandingData"
+				:key="index"
+				:img-src="card.src"
+				:img-alt="card.alt"
+				:card-primary-text="card.cardPrimaryText"
+				:card-secondary-text="card.cardSecondaryText"
+				@click.native="navigateToRoute(card.path)"
+			>
+			</gallery-landing-card>
+		</div>
 	</div>
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
-import cloudinary from '../../store/modules/cloudinary';
 import GalleryLandingCard from '../sub-components/GalleryLandingCard';
-import { GALLERY_LANDING_ROUTE } from '../../util/constants/routes';
+import BackButton from "../sub-components/BackButton";
 
 export default {
 	name: 'gallery-landing',
-	components: { GalleryLandingCard },
-	data() {
-		return {
-			isLoading: true
-		};
+	components: { BackButton, GalleryLandingCard },
+	props: {
+		galleryLandingData: {
+			required: true,
+			type: Array
+		}
 	},
 	computed: {
-		...mapGetters([cloudinary.getterTypes.GET_GALLERY_LANDING_CARD_DATA])
-	},
-	created() {
-		this.fetchCloudinaryData().finally(() => (this.isLoading = false));
+		galleryRoute() {
+			return this.$router.currentRoute.params.pathMatch;
+		},
 	},
 	methods: {
-		...mapActions({
-			fetchCloudinaryData: cloudinary.actionTypes.FETCH_CLOUDINARY_DATA
-		}),
 		navigateToRoute(path) {
-			this.$router.push(`${GALLERY_LANDING_ROUTE}/${path}`);
+			const currentPath = this.$router.currentRoute.path;
+			this.$router.push(`${currentPath}/${path}`);
 		}
 	}
 };

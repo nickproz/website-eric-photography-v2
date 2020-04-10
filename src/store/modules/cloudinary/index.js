@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { getterTypes as configGetterTypes } from '../config';
-import { GalleryUtil } from '../../../util/GalleryUtil';
 import { CLOUDINARY_PHOTOS_URI, CLOUDINARY_URI, SERVER_BASE_URL } from '../../../util/constants/routes';
 
 export const actionTypes = {
@@ -13,7 +12,6 @@ export const mutationTypes = {
 
 export const getterTypes = {
 	GET_CLOUDINARY_DATA: 'cloudinaryData',
-	GET_GALLERY_LANDING_CARD_DATA: 'galleryLandingCardData',
 	GET_GALLERY_DATA: 'galleryData'
 };
 
@@ -23,20 +21,26 @@ const state = {
 
 const getters = {
 	[getterTypes.GET_CLOUDINARY_DATA]: state => state.cloudinaryData,
-	[getterTypes.GET_GALLERY_DATA]: state => gallery => {
-		return Object.values((state.cloudinaryData || {})[gallery]).map((photo) => ({
-			src: photo.photoUrl,
-			thumb: photo.thumbnailUrl
-		}));
-	},
-	[getterTypes.GET_GALLERY_LANDING_CARD_DATA]: state => {
-		return Object.entries(state.cloudinaryData).map(([key, value]) => ({
-			path: key,
-			src: value[0].thumbnailUrl,
-			alt: key,
-			cardPrimaryText: GalleryUtil.getGalleryNameFromGalleryRoute(key),
-			cardSecondaryText: `${value.length} photos`
-		}));
+	[getterTypes.GET_GALLERY_DATA]: state => galleryPath => {
+		const cloudinaryData = state.cloudinaryData || {};
+
+		if(!galleryPath) {
+			return cloudinaryData;
+		}
+
+		// Split gallery path into folder segments and traverse cloudinary data getting the nested value based on the path
+		const galleryData = galleryPath.split('/')
+			.filter(path => !!path)
+			.reduce((accumulator, currentValue) => accumulator[currentValue] || {}, cloudinaryData);
+
+		// Return the data if we could fin dit
+		if(galleryData instanceof Array) {
+			return galleryData;
+		} else if(galleryData instanceof Object && Object.keys(galleryData).length > 0) {
+			return galleryData
+		} else {
+			return null;
+		}
 	}
 };
 

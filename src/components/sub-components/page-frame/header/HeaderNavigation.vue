@@ -17,7 +17,7 @@
 
 <script>
 import { RouterUtil } from '../../../../util/RouterUtil';
-import { ABOUT_ROUTE, GALLERY_LANDING_ROUTE, SHOP_ROUTE } from '../../../../util/constants/routes';
+import { ABOUT_ROUTE, GALLERY_ROUTE, SHOP_ROUTE } from '../../../../util/constants/routes';
 
 export default {
 	name: 'header-navigation',
@@ -28,7 +28,7 @@ export default {
 				{
 					name: 'Gallery',
 					icon: 'fas fa-camera',
-					route: GALLERY_LANDING_ROUTE,
+					route: GALLERY_ROUTE,
 					buttonIndex: 1
 				},
 				{

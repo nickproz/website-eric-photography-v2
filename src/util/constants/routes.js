@@ -1,15 +1,11 @@
-// Internal params
-export const GALLERY_PARAM_ID = 'galleryId';
-
 // Internal routes
 export const ROOT_ROUTE = '/';
-export const GALLERY_LANDING_ROUTE = '/gallery';
-export const GALLERY_ROUTE = `${GALLERY_LANDING_ROUTE}/:${GALLERY_PARAM_ID}`;
+export const GALLERY_ROUTE = '/gallery';
 export const ABOUT_ROUTE = '/about';
 export const SHOP_ROUTE = '/shop';
 
 // External routes
-export const SERVER_BASE_URL = 'https://nick-proz-node-server.herokuapp.com';
+export const SERVER_BASE_URL = 'http://localhost:4000';
 
 // External URIs
 export const CLOUDINARY_URI = 'cloudinary';

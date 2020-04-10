@@ -1,9 +1,14 @@
-import { GALLERY_LANDING_ROUTE } from './constants/routes';
+import { GALLERY_ROUTE } from './constants/routes';
 import router from '../router';
 
 export class RouterUtil {
+
+	static navigateBack() {
+		router.go(-1);
+	}
+
 	static navigateHome() {
-		RouterUtil.navigateToRoute(GALLERY_LANDING_ROUTE);
+		RouterUtil.navigateToRoute(GALLERY_ROUTE);
 	}
 
 	static navigateToRoute(route) {
