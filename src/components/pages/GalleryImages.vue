@@ -9,7 +9,11 @@
 			@load="onImageLoad()"
 			@click="openGallery(index)"
 		/>
-		<LightBox ref="lightbox" :media="images" :show-caption="false" :show-light-box="false" />
+		<LightBox ref="lightbox"
+			:media="images"
+			:show-caption="false"
+			:show-light-box="false"
+		/>
 	</div>
 </template>
 

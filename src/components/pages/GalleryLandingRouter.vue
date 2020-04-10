@@ -4,7 +4,7 @@
 		<v-progress-circular v-if="isLoading" indeterminate color="primary"></v-progress-circular>
 
 		<!-- Gallery landing -->
-		<gallery-landing v-if="galleryLandingData" :gallery-landing-data="galleryLandingData"></gallery-landing>
+		<gallery-landing v-if="galleryLandingData" :gallery-landing-data="galleryLandingData" class="gallery-landing"></gallery-landing>
 
 		<!-- Gallery -->
 		<gallery v-if="galleryPhotoData" :gallery-photo-data="galleryPhotoData"></gallery>
@@ -71,5 +71,8 @@ export default {
 
 <style lang="less" scoped>
 	.gallery-landing-router {
+		.gallery-landing {
+			margin-bottom: auto;
+		}
 	}
 </style>

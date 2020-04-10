@@ -1,5 +1,5 @@
 <template>
-	<div class="gallery">
+	<div class="gallery" :class="{ 'fix-header-alignment': !areImagesLoading }">
 		<!-- Loading indicator -->
 		<v-progress-circular
 			class="no-transition"
@@ -13,18 +13,19 @@
 			{{ percentOfImagesLoaded }}%
 		</v-progress-circular>
 
-		<!-- Back button -->
-		<back-button v-show="!areImagesLoading"></back-button>
+		<div class="images-container" v-show="!areImagesLoading">
+			<!-- Back button -->
+			<back-button></back-button>
 
-		<!-- Gallery images -->
-		<transition name="fade">
-			<gallery-images
-				:images="galleryPhotoData"
-				v-show="!areImagesLoading"
-				@imageLoad="onImageLoad"
-				@allImagesLoaded="onAllImagesLoaded"
-			/>
-		</transition>
+			<!-- Gallery images -->
+			<transition name="fade">
+				<gallery-images
+					:images="galleryPhotoData"
+					@imageLoad="onImageLoad"
+					@allImagesLoaded="onAllImagesLoaded"
+				/>
+			</transition>
+		</div>
 	</div>
 </template>
 
@@ -64,6 +65,12 @@ export default {
 .gallery {
 	width: 100%;
 
+	&.fix-header-alignment {
+		flex: 1;
+	}
+	.images-container {
+		margin-bottom: auto;
+	}
 	.loading-indicator {
 		color: white;
 		font-weight: bold;

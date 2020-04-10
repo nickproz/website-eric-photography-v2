@@ -11,7 +11,6 @@
 * IDE: Add shortcut for closing all files (cmd + shift + -)
 
 ### Enhancements
-* Move back button to top of page for smaller pages
 * Add dark mode setting
 * Zoom or slide page transitions
 

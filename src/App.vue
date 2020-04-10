@@ -20,6 +20,14 @@ export default {
 	components: {
 		HeaderBar,
 		FooterBar
+	},
+	created() {
+		document.addEventListener('contextmenu', event => {
+			// Prevent right clicks on images (so that users cannot save)
+			if(event.target.tagName === 'IMG') {
+				event.preventDefault()
+			}
+		});
 	}
 };
 </script>
@@ -57,7 +65,6 @@ img {
 		flex: 1 0 auto;
 		justify-content: center;
 		align-self: center;
-		align-items: center;
 		flex-direction: column;
 	}
 
@@ -91,7 +98,7 @@ img {
 	/* Fade transitions */
 	.fade-enter-active,
 	.fade-leave-active {
-		transition-duration: 0.5s;
+		transition-duration: 0.25s;
 		transition-property: opacity;
 		transition-timing-function: ease;
 	}
