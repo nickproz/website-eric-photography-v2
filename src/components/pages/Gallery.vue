@@ -31,7 +31,7 @@
 
 <script>
 import GalleryImages from './GalleryImages';
-import BackButton from "../sub-components/BackButton";
+import BackButton from '../sub-components/BackButton';
 
 export default {
 	name: 'gallery',
@@ -53,7 +53,7 @@ export default {
 			this.percentOfImagesLoaded = percentageOfImagesLoaded;
 		},
 		onAllImagesLoaded() {
-			setTimeout(() => (this.areImagesLoading = false), 500)
+			setTimeout(() => (this.areImagesLoading = false), 500);
 		}
 	}
 };

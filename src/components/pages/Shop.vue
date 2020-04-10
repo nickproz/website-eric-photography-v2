@@ -18,7 +18,7 @@ export default {
 	name: 'shop',
 	computed: {
 		...mapGetters([config.getterTypes.GET_SHOP_LINK])
-	},
+	}
 };
 </script>
 

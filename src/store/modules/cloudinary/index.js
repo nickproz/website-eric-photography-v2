@@ -1,6 +1,10 @@
 import axios from 'axios';
 import { getterTypes as configGetterTypes } from '../config';
-import { CLOUDINARY_PHOTOS_URI, CLOUDINARY_URI, SERVER_BASE_URL } from '../../../util/constants/routes';
+import {
+	CLOUDINARY_PHOTOS_URI,
+	CLOUDINARY_URI,
+	SERVER_BASE_URL
+} from '../../../util/constants/routes';
 
 export const actionTypes = {
 	FETCH_CLOUDINARY_DATA: 'FETCH_CLOUDINARY_DATA'
@@ -20,24 +24,25 @@ const state = {
 };
 
 const getters = {
-	[getterTypes.GET_CLOUDINARY_DATA]: state => state.cloudinaryData,
-	[getterTypes.GET_GALLERY_DATA]: state => galleryPath => {
+	[getterTypes.GET_CLOUDINARY_DATA]: (state) => state.cloudinaryData,
+	[getterTypes.GET_GALLERY_DATA]: (state) => (galleryPath) => {
 		const cloudinaryData = state.cloudinaryData || {};
 
-		if(!galleryPath) {
+		if (!galleryPath) {
 			return cloudinaryData;
 		}
 
 		// Split gallery path into folder segments and traverse cloudinary data getting the nested value based on the path
-		const galleryData = galleryPath.split('/')
-			.filter(path => !!path)
+		const galleryData = galleryPath
+			.split('/')
+			.filter((path) => !!path)
 			.reduce((accumulator, currentValue) => accumulator[currentValue] || {}, cloudinaryData);
 
 		// Return the data if we could fin dit
-		if(galleryData instanceof Array) {
+		if (galleryData instanceof Array) {
 			return galleryData;
-		} else if(galleryData instanceof Object && Object.keys(galleryData).length > 0) {
-			return galleryData
+		} else if (galleryData instanceof Object && Object.keys(galleryData).length > 0) {
+			return galleryData;
 		} else {
 			return null;
 		}
@@ -51,7 +56,9 @@ const actions = {
 		if (!Object.keys(existingCloudinaryData).length) {
 			const cloudinaryCloudName = getters[configGetterTypes.GET_CLOUDINARY_CLOUD_NAME];
 			return axios
-				.get(`${SERVER_BASE_URL}/${CLOUDINARY_URI}/${cloudinaryCloudName}/${CLOUDINARY_PHOTOS_URI}`)
+				.get(
+					`${SERVER_BASE_URL}/${CLOUDINARY_URI}/${cloudinaryCloudName}/${CLOUDINARY_PHOTOS_URI}`
+				)
 				.then(({ data }) => commit(mutationTypes.UPDATE_CLOUDINARY_DATA, data));
 		}
 	}

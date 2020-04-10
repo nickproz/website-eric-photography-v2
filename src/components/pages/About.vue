@@ -21,7 +21,7 @@ export default {
 	name: 'about',
 	computed: {
 		...mapGetters([config.getterTypes.GET_ABOUT_ME_HTML])
-	},
+	}
 };
 </script>
 

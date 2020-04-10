@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import { RouterUtil } from "../../util/RouterUtil";
+import { RouterUtil } from '../../util/RouterUtil';
 
 export default {
 	name: 'back-button',
@@ -23,8 +23,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
-	.back-button {
-		width: 100%;
-		margin-bottom: 1.5rem;
-	}
+.back-button {
+	width: 100%;
+	margin-bottom: 1.5rem;
+}
 </style>

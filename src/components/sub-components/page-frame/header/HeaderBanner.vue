@@ -1,10 +1,7 @@
 <template>
 	<div class="header-banner">
 		<h1 class="header-text" @click="navigateHome">
-			<img alt="Website logo"
-				class="logo"
-				src="../../../../assets/images/logo.png"
-			/>
+			<img alt="Website logo" class="logo" src="../../../../assets/images/logo.png" />
 			{{ websiteName }}
 		</h1>
 	</div>

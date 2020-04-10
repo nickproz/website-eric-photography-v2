@@ -4,7 +4,11 @@
 		<v-progress-circular v-if="isLoading" indeterminate color="primary"></v-progress-circular>
 
 		<!-- Gallery landing -->
-		<gallery-landing v-if="galleryLandingData" :gallery-landing-data="galleryLandingData" class="gallery-landing"></gallery-landing>
+		<gallery-landing
+			v-if="galleryLandingData"
+			:gallery-landing-data="galleryLandingData"
+			class="gallery-landing"
+		></gallery-landing>
 
 		<!-- Gallery -->
 		<gallery v-if="galleryPhotoData" :gallery-photo-data="galleryPhotoData"></gallery>
@@ -14,10 +18,10 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 import cloudinary from '../../store/modules/cloudinary';
-import { RouterUtil } from "../../util/RouterUtil";
-import { GalleryUtil } from "../../util/GalleryUtil";
-import GalleryLanding from "./GalleryLanding";
-import Gallery from "./Gallery";
+import { RouterUtil } from '../../util/RouterUtil';
+import { GalleryUtil } from '../../util/GalleryUtil';
+import GalleryLanding from './GalleryLanding';
+import Gallery from './Gallery';
 
 export default {
 	name: 'gallery-landing-router',
@@ -33,7 +37,7 @@ export default {
 		...mapGetters([cloudinary.getterTypes.GET_GALLERY_DATA]),
 		galleryPath() {
 			return this.$router.currentRoute.params.pathMatch;
-		},
+		}
 	},
 	created() {
 		this.fetchCloudinaryData().finally(() => {
@@ -52,27 +56,31 @@ export default {
 			fetchCloudinaryData: cloudinary.actionTypes.FETCH_CLOUDINARY_DATA
 		}),
 		handleGalleryData(galleryData) {
-			if(galleryData instanceof Array) {
+			if (galleryData instanceof Array) {
 				// If we have an array, transform to photo data and show the photo gallery
-				this.galleryPhotoData = GalleryUtil.transformCloudinaryGalleryPhotoData(galleryData);
-			} else if(galleryData instanceof Object) {
+				this.galleryPhotoData = GalleryUtil.transformCloudinaryGalleryPhotoData(
+					galleryData
+				);
+			} else if (galleryData instanceof Object) {
 				// If we have an object, transform to landing data and show the gallery landing page
-				this.galleryLandingData = GalleryUtil.transformCloudinaryGalleryLandingData(galleryData);
+				this.galleryLandingData = GalleryUtil.transformCloudinaryGalleryLandingData(
+					galleryData
+				);
 			} else {
 				this.navigateHome();
 			}
 		},
 		navigateHome() {
 			RouterUtil.navigateHome();
-		},
+		}
 	}
 };
 </script>
 
 <style lang="less" scoped>
-	.gallery-landing-router {
-		.gallery-landing {
-			margin-bottom: auto;
-		}
+.gallery-landing-router {
+	.gallery-landing {
+		margin-bottom: auto;
 	}
+}
 </style>

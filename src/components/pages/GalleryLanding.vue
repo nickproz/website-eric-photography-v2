@@ -22,7 +22,7 @@
 
 <script>
 import GalleryLandingCard from '../sub-components/GalleryLandingCard';
-import BackButton from "../sub-components/BackButton";
+import BackButton from '../sub-components/BackButton';
 
 export default {
 	name: 'gallery-landing',
@@ -36,7 +36,7 @@ export default {
 	computed: {
 		galleryRoute() {
 			return this.$router.currentRoute.params.pathMatch;
-		},
+		}
 	},
 	methods: {
 		navigateToRoute(path) {

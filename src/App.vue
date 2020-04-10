@@ -1,10 +1,7 @@
 <template>
 	<v-app class="application">
 		<header-bar></header-bar>
-		<transition
-			name="fade"
-			mode="out-in"
-		>
+		<transition name="fade" mode="out-in">
 			<router-view class="main-content" :key="$route.fullPath"></router-view>
 		</transition>
 		<footer-bar></footer-bar>
@@ -22,10 +19,10 @@ export default {
 		FooterBar
 	},
 	created() {
-		document.addEventListener('contextmenu', event => {
+		document.addEventListener('contextmenu', (event) => {
 			// Prevent right clicks on images (so that users cannot save)
-			if(event.target.tagName === 'IMG') {
-				event.preventDefault()
+			if (event.target.tagName === 'IMG') {
+				event.preventDefault();
 			}
 		});
 	}
@@ -37,7 +34,8 @@ export default {
 	// 1rem = 10px
 	font-size: 62.5%;
 }
-html, body {
+html,
+body {
 	height: 100%;
 }
 body {
@@ -105,7 +103,7 @@ img {
 
 	.fade-enter,
 	.fade-leave-active {
-		opacity: 0
+		opacity: 0;
 	}
 }
 </style>

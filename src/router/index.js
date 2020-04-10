@@ -4,7 +4,7 @@ import Router from 'vue-router';
 import * as routes from '../util/constants/routes.js';
 import About from '../components/pages/About';
 import Shop from '../components/pages/Shop';
-import GalleryLandingRouter from "../components/pages/GalleryLandingRouter";
+import GalleryLandingRouter from '../components/pages/GalleryLandingRouter';
 
 Vue.use(Router);
 

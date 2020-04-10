@@ -2,10 +2,7 @@
 	<div class="gallery-landing-card hvr-float">
 		<v-card>
 			<div class="card-image-container">
-				<img
-					:src="imgSrc"
-					:alt="imgAlt"
-					class="card-image"/>
+				<img :src="imgSrc" :alt="imgAlt" class="card-image" />
 			</div>
 			<v-card-text class="card-text">
 				<h2 class="card-primary-text">{{ cardPrimaryText }}</h2>
