@@ -7,6 +7,7 @@
 * Add prettier commit hook
 * Fix prettier/eslint conflicts
 * Replace babel w/Typescript
+* Figure out style lint
 * IDE: Run prettier on save
 * IDE: Add shortcut for closing all files (cmd + shift + -)
 
