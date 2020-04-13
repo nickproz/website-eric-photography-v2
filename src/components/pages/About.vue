@@ -8,19 +8,20 @@
 			/>
 		</div>
 		<div class="about-me-text-container">
-			<p class="about-me-text" v-html="aboutMeHtml"></p>
+			<p class="about-me-text" v-html="ABOUT_ME_HTML"></p>
 		</div>
 	</div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import config from '../../store/modules/config';
+import { ABOUT_ME_HTML } from '../../util/constants/initial-config';
 
 export default {
 	name: 'about',
-	computed: {
-		...mapGetters([config.getterTypes.GET_ABOUT_ME_HTML])
+	data() {
+		return {
+			ABOUT_ME_HTML
+		}
 	}
 };
 </script>
@@ -56,6 +57,8 @@ export default {
 		.about-me-image-container,
 		.about-me-text-container {
 			width: 50%;
+			display: flex;
+			align-items: center;
 		}
 		.about-me-text-container {
 			margin-top: 0;

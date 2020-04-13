@@ -2,20 +2,21 @@
 	<div class="header-banner">
 		<h1 class="header-text" @click="navigateHome">
 			<img alt="Website logo" class="logo" src="../../../../assets/images/logo.png" />
-			{{ websiteName }}
+			{{ WEBSITE_NAME }}
 		</h1>
 	</div>
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import config from '../../../../store/modules/config';
 import { RouterUtil } from '../../../../util/RouterUtil';
+import { WEBSITE_NAME } from '../../../../util/constants/initial-config';
 
 export default {
 	name: 'header-banner',
-	computed: {
-		...mapGetters([config.getterTypes.GET_WEBSITE_NAME])
+	data() {
+		return {
+			WEBSITE_NAME
+		}
 	},
 	methods: {
 		navigateHome() {

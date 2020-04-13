@@ -1,10 +1,10 @@
 import axios from 'axios';
-import { getterTypes as configGetterTypes } from '../config';
 import {
 	CLOUDINARY_PHOTOS_URI,
 	CLOUDINARY_URI,
 	SERVER_BASE_URL
 } from '../../../util/constants/routes';
+import { CLOUDINARY_CLOUD_NAME } from '../../../util/constants/initial-config';
 
 export const actionTypes = {
 	FETCH_CLOUDINARY_DATA: 'FETCH_CLOUDINARY_DATA'
@@ -54,10 +54,9 @@ const actions = {
 		// Only fetch data if we haven't already
 		const existingCloudinaryData = getters[getterTypes.GET_CLOUDINARY_DATA];
 		if (!Object.keys(existingCloudinaryData).length) {
-			const cloudinaryCloudName = getters[configGetterTypes.GET_CLOUDINARY_CLOUD_NAME];
 			return axios
 				.get(
-					`${SERVER_BASE_URL}/${CLOUDINARY_URI}/${cloudinaryCloudName}/${CLOUDINARY_PHOTOS_URI}`
+					`${SERVER_BASE_URL}/${CLOUDINARY_URI}/${CLOUDINARY_CLOUD_NAME}/${CLOUDINARY_PHOTOS_URI}`
 				)
 				.then(({ data }) => commit(mutationTypes.UPDATE_CLOUDINARY_DATA, data));
 		}

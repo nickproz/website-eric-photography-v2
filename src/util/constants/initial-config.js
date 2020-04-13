@@ -1,5 +1,4 @@
-export const INITIAL_CONFIG = {
-	ABOUT_ME_HTML: `
+export const ABOUT_ME_HTML = `
 Hi, my name is Eric Stiles. All photos from this site have been taken and edited by
 me. Whether it’s the long exposure blur of car head lights and ferris wheels, the
 reflection of Chicago, or the bright stars of Zion Nation Park, I typically like to
@@ -13,8 +12,7 @@ expect to see some variety in new locations. Thank you for visiting this site an
 checking out my photos! Please reach out to me with any questions or comments that
 you may have at
 <a class="email-link" href="mailto:estiles33@gmail.com.">estiles33@gmail.com</a>.
-`,
-	SHOP_LINK: 'https://www.etsy.com/shop/PhotographEboy',
-	WEBSITE_NAME: 'Estiles Photography',
-	CLOUDINARY_CLOUD_NAME: 'estiles-photography'
-};
+`;
+export const SHOP_LINK = 'https://www.etsy.com/shop/PhotographEboy';
+export const WEBSITE_NAME = 'Estiles Photography';
+export const CLOUDINARY_CLOUD_NAME = 'estiles-photography';

@@ -1,6 +1,6 @@
 <template>
 	<div class="shop">
-		<a :href="shopLink" target="_blank">
+		<a :href="SHOP_LINK" target="_blank">
 			<img
 				class="hvr-grow-rotate shop-logo"
 				alt="Shop logo"
@@ -11,13 +11,14 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex';
-import config from '../../store/modules/config';
+import { SHOP_LINK } from '../../util/constants/initial-config';
 
 export default {
 	name: 'shop',
-	computed: {
-		...mapGetters([config.getterTypes.GET_SHOP_LINK])
+	data() {
+		return {
+			SHOP_LINK
+		}
 	}
 };
 </script>
