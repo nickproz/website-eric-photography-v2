@@ -16,7 +16,7 @@ export default {
 	data() {
 		return {
 			WEBSITE_NAME
-		}
+		};
 	},
 	methods: {
 		navigateHome() {
