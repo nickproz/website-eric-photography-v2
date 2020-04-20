@@ -3,7 +3,7 @@
 		<v-bottom-navigation>
 			<p class="footnote-text">
 				For support or to report website issues, email the website creator at
-				<a href="mailto:nick.prozorovsky@gmail.com" class="email-link">nick.prozorovsky@gmail.com</a>
+				<a href="mailto:nick.prozorovsky@gmail.com">nick.prozorovsky@gmail.com</a>
 			</p>
 		</v-bottom-navigation>
 	</div>

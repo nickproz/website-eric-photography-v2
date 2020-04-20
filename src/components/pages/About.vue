@@ -47,7 +47,7 @@ export default {
 		width: 30rem;
 		border-radius: 50rem;
 	}
-	.email-link {
+	a {
 		margin-left: 0.4rem;
 	}
 
