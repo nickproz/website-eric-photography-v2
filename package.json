@@ -8,7 +8,7 @@
 	"scripts": {
 		"start": "yarn dev",
 		"dev": "parcel src/index.html -p 1234",
-		"build": "parcel build src/index.html",
+		"build": "parcel build src/index.html --public-url ./",
 		"git-publish": "yarn build && gh-pages -d dist",
 		"lint": "eslint --ext .js --ext .vue src",
 		"pretty": "prettier --write \"src/**\""
